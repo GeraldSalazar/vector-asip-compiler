@@ -3,6 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { CompilerModule } from './modules/compiler/compiler.module';
+import { ImageGradientModule } from './modules/image-gradient/image-gradient.module';
 
 @NgModule({
   declarations: [
@@ -10,8 +12,10 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
-  ],
+    AppRoutingModule,
+    ImageGradientModule,
+    CompilerModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
