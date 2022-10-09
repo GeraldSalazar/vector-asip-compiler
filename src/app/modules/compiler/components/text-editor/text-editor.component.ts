@@ -29,4 +29,6 @@ export class TextEditorComponent implements OnInit {
     this.renderer.setProperty(this.lineCount.nativeElement, 'scrollTop', scrollTop+'')
   }
 
+  //https://stackoverflow.com/questions/37139076/change-color-of-specific-words-in-textarea
+
 }

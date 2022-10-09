@@ -1,0 +1,36 @@
+canvas {
+  background-color: rgb(192, 192, 192);
+  width: 200px;
+  height: 150px;
+  box-shadow: 5px 5px rgba(128, 128, 128, 0.529);
+  position: relative;
+}
+input {
+  display: none;
+}
+div {
+  position: relative;
+}
+.input-label {
+  background-color: transparent;
+  width: 200px;
+  display: inline-block;
+  height: 150px;
+  left: 0;
+  top: 0;
+  color: rgb(249, 249, 249);
+  position: absolute;
+  cursor: pointer;
+}
+.input-label:hover {
+  background: url("/assets/upload-solid.svg") no-repeat center/40%;
+  opacity: 0.2;
+  background-color: aliceblue;
+  fill: rgb(255, 255, 255);
+}
+.input-label::after {
+  content: "200x150px";
+  margin: 10px;
+  font-size: 0.75rem;
+  position: absolute;
+}
