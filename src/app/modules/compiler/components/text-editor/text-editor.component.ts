@@ -17,9 +17,11 @@ export class TextEditorComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  updateLineNum(text: string){
-    const linesNum = text.split('\n').length
-    this.totalLines = new Array(linesNum).fill(0);
+  updateLineNum(text: string | null){
+    if(text){
+      const linesNum = text.split('\n').length
+      this.totalLines = new Array(linesNum).fill(0);
+    }
   }
 
   catchScroll(event: Event){

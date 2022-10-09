@@ -1,4 +1,29 @@
-:host {
-  background-color: blueviolet;
-  height: 100vh;
+main {
+  margin: 0 5%;
+}
+div {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+h1 {
+  margin: 0.25rem;
+  display: inline;
+}
+a {
+  text-decoration: none;
+  color: #000;
+  padding: 0.5rem;
+  border-radius: 5px;
+  background-color: rgba(170, 170, 170, 0.15);
+  width: 200px;
+  text-align: center;
+}
+a:hover {
+  text-decoration: underline;
+  background-color: rgba(232, 232, 232, 0.519);
+}
+i {
+  margin: 0.2rem;
 }

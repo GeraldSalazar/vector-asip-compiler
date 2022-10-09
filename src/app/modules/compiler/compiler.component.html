@@ -1,4 +1,14 @@
 <main>
-    <h1>ASIP Compiler</h1>
-    <app-text-editor></app-text-editor>
+    <div>
+        <h1>ASIP Compiler</h1>
+        <a routerLink="/image-gradient" href="#">Image Settings<i class="fa-regular fa-image"></i></a>
+    </div>
+    <section class="compilation-section">
+        <app-text-editor></app-text-editor>
+        <section class="result-section">
+            <app-binary-result></app-binary-result>
+            <app-control-btns></app-control-btns>
+        </section>
+    </section>
+
 </main>
