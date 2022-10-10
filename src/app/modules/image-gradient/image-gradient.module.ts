@@ -8,6 +8,7 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
 import { AlphaCompositingComponent } from './components/alpha-compositing/alpha-compositing.component';
 import { LinearGradientComponent } from './components/linear-gradient/linear-gradient.component';
 import { ImageCanvasComponent } from './components/image-canvas/image-canvas.component';
+import { ImageResultComponent } from './components/image-result/image-result.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { ImageCanvasComponent } from './components/image-canvas/image-canvas.com
     ToRgbCanvasComponent,
     AlphaCompositingComponent,
     LinearGradientComponent,
-    ImageCanvasComponent
+    ImageCanvasComponent,
+    ImageResultComponent
   ],
   imports: [
     CommonModule,

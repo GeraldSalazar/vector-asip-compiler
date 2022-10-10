@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { RgbDataService } from '../../services/rgb-data.service';
 
 @Component({
   selector: 'app-alpha-compositing',
@@ -7,10 +8,12 @@ import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angula
 })
 export class AlphaCompositingComponent {
 
-
+  constructor(private rgbService: RgbDataService){}
   ngOnInit(): void {
   }
 
-
+  setRGBDataImg(imgData: number[][]) {
+    this.rgbService.setRGBDataFromImg(imgData)
+  }
 
 }

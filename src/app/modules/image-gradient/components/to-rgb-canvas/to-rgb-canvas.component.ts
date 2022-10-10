@@ -11,7 +11,6 @@ export class ToRgbCanvasComponent {
   imageRGBresult: number[][] = [];
   constructor() { }
   setRGBDataToDisplay(RGBdata: number[][]){
-    console.log(RGBdata)
     this.imageRGBresult = RGBdata;
   }
 

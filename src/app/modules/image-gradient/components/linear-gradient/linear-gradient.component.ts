@@ -1,4 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { RgbDataService } from '../../services/rgb-data.service';
 import { dataTransformToRBG } from '../shared/dataTransformToRGB';
 
 @Component({
@@ -13,7 +14,7 @@ export class LinearGradientComponent implements OnInit {
 
   gradientRGBData: number[][] = []
   @ViewChild('gradientCanvas') gradientResult!: ElementRef;
-  constructor() { }
+  constructor(private rgbService: RgbDataService) { }
   ngAfterViewInit(): void {
   }
 
@@ -37,6 +38,7 @@ export class LinearGradientComponent implements OnInit {
       console.log(`%c Linear Gradient RGB Data: `, `background: #000; color: ${color1}`)
       console.log(this.gradientRGBData)
       console.log(`%c ------------------------- `, `background: #000; color: ${color1}`)
+      this.rgbService.setRGBDataFromGrad(this.gradientRGBData)
     }
 
   }

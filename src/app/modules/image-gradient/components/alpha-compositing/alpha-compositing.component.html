@@ -8,7 +8,7 @@
     </div>
     <div class="image-composition-container">
         <section class="image-selection">
-            <app-image-canvas></app-image-canvas>
+            <app-image-canvas (rgbResult)="setRGBDataImg($event)"></app-image-canvas>
             <app-linear-gradient></app-linear-gradient>
         </section>
         <i style="margin-left: 4rem;" class="fa-solid fa-grip-lines"></i>
@@ -16,6 +16,6 @@
             <i class="fa-solid fa-gear"></i>
         </button>
         <i style="margin-right: 4rem;" class="fa-solid fa-grip-lines"></i>
-        <app-image-canvas></app-image-canvas>
+        <app-image-result></app-image-result>
     </div>
 </main>
