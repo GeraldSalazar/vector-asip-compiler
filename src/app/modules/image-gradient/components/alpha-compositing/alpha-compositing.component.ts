@@ -16,4 +16,8 @@ export class AlphaCompositingComponent {
     this.rgbService.setRGBDataFromImg(imgData)
   }
 
+  startComposition(){
+    this.rgbService.calculateComposition()
+  }
+
 }
