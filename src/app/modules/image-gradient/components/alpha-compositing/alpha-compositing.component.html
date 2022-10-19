@@ -1,0 +1,21 @@
+<main>
+    <div class="nav-container">
+        <h1>Image Settings</h1>
+        <section class="nav">
+            <a routerLink="/image-gradient" href="#">Image RGB<i class="fa-solid fa-droplet"></i></a>
+            <a routerLink="/compiler" href="#">Compiler<i class="fa-regular fa-rectangle-list"></i></a>
+        </section>
+    </div>
+    <div class="image-composition-container">
+        <section class="image-selection">
+            <app-image-canvas (rgbResult)="setRGBDataImg($event)"></app-image-canvas>
+            <app-linear-gradient></app-linear-gradient>
+        </section>
+        <i style="margin-left: 4rem;" class="fa-solid fa-grip-lines"></i>
+        <button (click)="startComposition()">
+            <i class="fa-solid fa-gear"></i>
+        </button>
+        <i style="margin-right: 4rem;" class="fa-solid fa-grip-lines"></i>
+        <app-image-result></app-image-result>
+    </div>
+</main>

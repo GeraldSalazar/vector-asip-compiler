@@ -1,0 +1,7 @@
+
+<app-image-canvas (rgbResult)="setRGBDataToDisplay($event)"></app-image-canvas>
+<i class="fa-solid fa-arrow-right"></i>
+<h6>Image RGB Result:</h6>
+<cdk-virtual-scroll-viewport itemSize="2" class="result-rgb">
+    <p *cdkVirtualFor="let rgb of imageRGBresult">({{rgb}})</p>
+</cdk-virtual-scroll-viewport>

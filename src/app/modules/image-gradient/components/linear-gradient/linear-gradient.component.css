@@ -1,0 +1,8 @@
+input {
+  width: 200px;
+  margin-top: 0.5rem;
+}
+canvas {
+  display: block;
+  background: linear-gradient(to bottom, #384fff, #000 100%);
+}

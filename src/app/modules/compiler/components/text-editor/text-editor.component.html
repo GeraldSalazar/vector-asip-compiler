@@ -3,5 +3,10 @@
     <div class="line-count" #lineCount>
         <p *ngFor="let line of totalLines; let i = index">{{i}}</p>
     </div>
-    <div contenteditable="true" (scroll)="catchScroll($event)" (keyup)="updateLineNum(tEditor.innerText)" id="text-editor" #tEditor></div>
+    <div (keyup)="checkText($event)" 
+    spellcheck="false"
+    contenteditable="true" 
+    (scroll)="catchScroll($event)" 
+    (keyup)="updateLineNum(tEditor.innerText)" 
+    id="text-editor" #tEditor></div>
 </section>
