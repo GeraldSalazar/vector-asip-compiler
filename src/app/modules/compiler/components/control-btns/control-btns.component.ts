@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CompilationService } from '../../services/compilation.service';
 
 @Component({
   selector: 'app-control-btns',
@@ -7,12 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ControlBtnsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private compilationService: CompilationService) { }
 
   ngOnInit(): void {
   }
   compileCode(){
     console.log('Compiling...')
+    this.compilationService.startCompilation();
   }
   generateFile(){
     console.log('Generating file...')
