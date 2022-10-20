@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { compileTextSection } from './text-section-compilation'
+import { compileTextSection } from './compilation/text-section-compilation'
 @Injectable({
   providedIn: 'root'
 })
@@ -39,11 +39,10 @@ export class CompilationService {
     const dataInstructions = filteredInstrucs.slice(1,textSectionIndex);   //.data instructions
     const textInstructions = filteredInstrucs.slice(textSectionIndex+1);   //.text instructions
     console.log('.data: ')
-    console.log(dataInstructions)
     this.setVariblesMap(dataInstructions);
     console.log(this.varsMap);
     console.log('.text: ')
-    console.log(textInstructions)
+    // start compilation of actual code (.text section)
     compileTextSection(textInstructions);
   }
 
