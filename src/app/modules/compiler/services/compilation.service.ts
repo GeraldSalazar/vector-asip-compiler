@@ -1,23 +1,57 @@
 import { Injectable } from '@angular/core';
-
+import { compileTextSection } from './text-section-compilation'
 @Injectable({
   providedIn: 'root'
 })
 export class CompilationService {
 
   constructor() { }
-
-  keywords: string[] = ['ADDVV', 'ADDSS', 'SUBVV', 'SUBSS', 'MULVS', 'LDS', 'STS', 'LDV', 'STV']
+  /*
+  .data;
+  define addr = 1;
+  define addr2 = 1000;
+  define addr3 = 15000;
+  .text;
+  ADDVV V1, V1, V2;
+  LDs F0, $addr;
+  ADDSS F0, F0, #50000;
+  */
+  textKeywords: string[] = ['ADDVV', 'ADDSS', 'SUBVV', 'SUBSS', 'MULVS', 'LDS', 'STS', 'LDV', 'STV']
+  dataKeywords: string[] = ['DEFINE']
   rawCode: string = ''
-  startCompilation(){
-    console.log(this.rawCode)
 
-    // split .data & .text into 2 different arrays
-    // create a map to hold indentifiers from .data section
-    // define format for instrucction
-    //    - MULvv V1, V1, V2  (data processing)
-    //    - Stv V1, V1, address  (load-store)
-    // split string code from .text section by (/n), obtaining each instruccion
+  //.data section
+  varsMap: Map<string, string> = new Map();
+
+  startCompilation(){
+    //add each instruction to an array
+    const rawInstrucs = this.rawCode.split('\n')
+    //remove ';' and whitespace to each instruction
+    const trimmedInstrucs = rawInstrucs.map(instr => {
+      if(instr.includes(';')) return instr.trim().replace(';', '')   //remove ';'
+      return instr.trim()
+    })
+    // filter for empty string
+    const filteredInstrucs = trimmedInstrucs.filter(i => (i) ? true : false)
+    //find index of .text instructions beginning
+    const textSectionIndex = filteredInstrucs.findIndex(instruc => instruc.includes('.text'))
+    // split instructions according to section
+    const dataInstructions = filteredInstrucs.slice(1,textSectionIndex);   //.data instructions
+    const textInstructions = filteredInstrucs.slice(textSectionIndex+1);   //.text instructions
+    console.log('.data: ')
+    console.log(dataInstructions)
+    this.setVariblesMap(dataInstructions);
+    console.log(this.varsMap);
+    console.log('.text: ')
+    console.log(textInstructions)
+    compileTextSection(textInstructions);
+  }
+
+  setVariblesMap(dataInstrucs: string[]){
+    dataInstrucs.forEach(instruc => {
+      const units = instruc.split(' ');
+      this.varsMap.set(units[1], units[3]);
+    });
   }
   setRawCode(code: string){
     this.rawCode = code

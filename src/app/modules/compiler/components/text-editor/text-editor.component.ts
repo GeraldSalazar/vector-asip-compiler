@@ -9,7 +9,8 @@ import { CompilationService } from '../../services/compilation.service';
 })
 export class TextEditorComponent implements OnInit {
 
-  keywords: string[] = this.compilationService.keywords;
+  dataKeywords: string[] = this.compilationService.dataKeywords;
+  textKeywords: string[] = this.compilationService.textKeywords;
 
   totalLines: Array<number> = [0];
   constructor(private renderer: Renderer2, private compilationService: CompilationService) { }
@@ -63,10 +64,15 @@ export class TextEditorComponent implements OnInit {
   textToHTML(text: string[]): string{
     let html = ''
     for(let i=0; i<text.length; i++){
-      let keywordIndex = this.keywords.indexOf(text[i].trim().toUpperCase())
-      if (keywordIndex > -1) {
-        html += "<span class='statement'>" + this.keywords[keywordIndex] + "&nbsp; </span>";
-      } else {
+      let dataKeywordIndex = this.dataKeywords.indexOf(text[i].trim().toUpperCase())
+      let textKeywordIndex = this.textKeywords.indexOf(text[i].trim().toUpperCase())
+      if (textKeywordIndex > -1) {
+        html += "<span class='text-statement'>" + this.textKeywords[textKeywordIndex] + "&nbsp; </span>";
+      };
+      if (dataKeywordIndex > -1) {
+        html += "<span class='data-statement'>" + this.dataKeywords[dataKeywordIndex] + "&nbsp; </span>";
+      }
+      else {
         html += text[i]+ '&nbsp;'; 
       }
       if(text[i].includes(';')){

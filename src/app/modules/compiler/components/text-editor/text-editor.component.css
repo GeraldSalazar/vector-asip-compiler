@@ -44,8 +44,11 @@ label {
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   color: rgba(0, 0, 0, 0.552);
 }
-:host ::ng-deep div#text-editor span.statement {
+:host ::ng-deep div#text-editor span.text-statement {
   color: blue;
+}
+:host ::ng-deep div#text-editor span.data-statement {
+  color: orange;
 }
 :host ::ng-deep div#text-editor span.other {
   color: #000;
