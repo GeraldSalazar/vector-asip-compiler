@@ -38,13 +38,18 @@ export class TextEditorComponent implements OnInit {
 
   checkText(event: KeyboardEvent){
     const textEditor = this.textEditor.nativeElement as HTMLDivElement
-    this.compilationService.setRawCode(textEditor.innerText)
+    
     if(event.code == 'Space'){
       const formattedText = textEditor.innerText.replace(/[\s]+/g, " ").trim().split(" ");
       let newHTML = this.textToHTML(formattedText);
       this.renderer.setProperty(textEditor, 'innerHTML', newHTML)
       this.placeCaretAtEnd(textEditor)
     }
+
+  }
+  setRawCode(){
+    const textEditor = this.textEditor.nativeElement as HTMLDivElement
+    this.compilationService.setRawCode(textEditor.innerText)
 
   }
 

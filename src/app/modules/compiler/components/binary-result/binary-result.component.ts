@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { binaryResult } from '../../services/compilation/to-binary/binary-translation';
 
 @Component({
   selector: 'app-binary-result',
@@ -8,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class BinaryResultComponent implements OnInit {
 
   constructor() { }
-  binaryInstucsResult = ['00001111110000', '00001111110000','00000111111000']
+  binaryInstucsResult = binaryResult;
 
   ngOnInit(): void {
   }

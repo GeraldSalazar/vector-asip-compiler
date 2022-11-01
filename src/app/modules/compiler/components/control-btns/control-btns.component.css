@@ -14,5 +14,5 @@ button {
   cursor: pointer;
 }
 button:active {
-  background-color: aliceblue;
+  background-color: rgb(230, 233, 235);
 }

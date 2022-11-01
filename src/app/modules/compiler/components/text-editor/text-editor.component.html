@@ -3,7 +3,8 @@
     <div class="line-count" #lineCount>
         <p *ngFor="let line of totalLines; let i = index">{{i}}</p>
     </div>
-    <div (keyup)="checkText($event)" 
+    <div 
+    (keyup)="setRawCode()" 
     spellcheck="false"
     contenteditable="true" 
     (scroll)="catchScroll($event)" 

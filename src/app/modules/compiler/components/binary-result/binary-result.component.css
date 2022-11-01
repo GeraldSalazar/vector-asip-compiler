@@ -3,6 +3,7 @@ div {
   width: 100%;
   background-color: #f6f7f8;
   border-radius: 5px;
+  overflow-y: scroll;
 }
 .result-title {
   margin: 0;
